@@ -43,6 +43,7 @@ public class CharacterSheet extends AppCompatActivity {
     private ViewPager mViewPager;
     private final static int NUM_PAGES = 5;
     private List<ImageView> dots;
+    private Runnable hideDots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +102,7 @@ public class CharacterSheet extends AppCompatActivity {
                 case 2: return FragmentCharCore.newInstance(position + 1);
                 case 3: return FragmentCharInventory.newInstance(position + 1);
                 case 4: return FragmentCharSpells.newInstance(position + 1);
-                default: return FragmentCharCore.newInstance(3);
+                default: return FragmentCharCore.newInstance(2);
             }
             //return null;
         }
@@ -122,18 +123,6 @@ public class CharacterSheet extends AppCompatActivity {
 
         // Set fade out timer and animation
 
-        dotsLayout.postDelayed(new Runnable() {
-
-            public void run() {
-                Animation fadeOut = new AlphaAnimation(1, 0);  // the 1, 0 here notifies that we want the opacity to go from opaque (1) to transparent (0)
-                fadeOut.setInterpolator(new AccelerateInterpolator());
-                fadeOut.setStartOffset(0);
-                fadeOut.setDuration(1000); // Fadeout duration should be 1 second
-
-                dotsLayout.setAnimation(fadeOut);
-            }
-        }, 3000); // (3000 == 3secs)
-
         for(int i = 0; i < NUM_PAGES; i++) {
             ImageView dot = new ImageView(this);
 
@@ -150,15 +139,32 @@ public class CharacterSheet extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
 
-            params.setMargins(10, 0, 10, 0);
+            params.setMargins(40, 0, 40, 0);
             dotsLayout.addView(dot, params);
             dots.add(dot);
         }
 
+        /**
+         * Make the dots hide after 1 second
+         */
+        hideDots = new Runnable() {
+            public void run() {
+                AlphaAnimation fadeOut = new AlphaAnimation(1.0f, 0.0f);
+                fadeOut.setDuration(300);
+
+                dotsLayout.startAnimation(fadeOut);
+                dotsLayout.setVisibility(View.INVISIBLE);
+            }
+        };
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                dotsLayout.removeCallbacks(hideDots);
+
                 dotsLayout.setVisibility(View.VISIBLE);
+
+                dotsLayout.postDelayed(hideDots, 1000);
             }
 
             @Override
