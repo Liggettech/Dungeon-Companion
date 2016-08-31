@@ -1,7 +1,816 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/layStatsContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
-</LinearLayout>
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/layAttributes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="12%">
+
+        <LinearLayout
+            android:id="@+id/layInspiration"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="33%"
+
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentTop="true" >
+
+            <TextView
+                android:id="@+id/textInspiration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inspiration" />
+
+            <EditText
+                android:id="@+id/editInspiration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layProficiency"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="34%"
+
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/layInspiration">
+
+            <TextView
+                android:id="@+id/textProficiency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Proficiency" />
+
+            <EditText
+                android:id="@+id/editProficiency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layPassiveWisdom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="33%"
+
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/layProficiency" >
+
+            <TextView
+                android:id="@+id/textPassiveWisdom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passive Wisdom" />
+
+            <EditText
+                android:id="@+id/editPassiveWisdom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.percent.PercentRelativeLayout>
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/layStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="88%"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layAttributes">
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/layStrengthConstitution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="25%"
+
+            android:layout_alignParentTop="true">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layStrength"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:id="@+id/textStrength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Strength"/>
+
+                <TextView
+                    android:id="@+id/textStrengthMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editStrength"
+                    android:layout_below="@+id/textStrength"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editStrength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkStrengthSavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textStrengthMod"
+                    android:layout_toEndOf="@+id/textStrengthMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+                <RadioButton
+                    android:id="@+id/rdoAthletics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/chkStrengthSavingThrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/chkStrengthSavingThrow"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Athletics" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layConstitution"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_toRightOf="@id/layStrength">
+
+                <TextView
+                    android:id="@+id/textConstitution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Constitution"/>
+
+                <TextView
+                    android:id="@+id/textConstitutionMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editConstitution"
+                    android:layout_below="@+id/textConstitution"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editConstitution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkConstitutionSavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textConstitutionMod"
+                    android:layout_toEndOf="@+id/textConstitutionMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/layDexterityCharisma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="35%"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/layStrengthConstitution">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layDexterity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:id="@+id/textDexterity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Dexterity"/>
+
+                <TextView
+                    android:id="@+id/textDexterityMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editDexterity"
+                    android:layout_below="@+id/textDexterity"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editDexterity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkDexteritySavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textDexterityMod"
+                    android:layout_toEndOf="@+id/textDexterityMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+                <RadioButton
+                    android:id="@+id/rdoAcrobatics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/chkDexteritySavingThrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/chkDexteritySavingThrow"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Acrobatics" />
+
+                <RadioButton
+                    android:id="@+id/rdoSleightOfHand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoAcrobatics"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoAcrobatics"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Sleight of Hand"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoStealth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoSleightOfHand"
+                    android:layout_alignStart="@+id/rdoSleightOfHand"
+                    android:layout_alignParentEnd="true"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Stealth" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layCharisma"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_toRightOf="@id/layDexterity">
+
+                <TextView
+                    android:id="@+id/textCharisma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Charisma"/>
+
+                <TextView
+                    android:id="@+id/textCharismaMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editCharisma"
+                    android:layout_below="@+id/textCharisma"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editCharisma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkCharismaSavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textCharismaMod"
+                    android:layout_toEndOf="@+id/textCharismaMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+                <RadioButton
+                    android:id="@+id/rdoDeception"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/chkCharismaSavingThrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/chkCharismaSavingThrow"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Deception" />
+
+                <RadioButton
+                    android:id="@+id/rdoIntimidation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoDeception"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoDeception"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Intimidation"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rdoPerformance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoIntimidation"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoIntimidation"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Performance"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rdoPersuasion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoPerformance"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoPerformance"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Persuasion"
+                    android:layout_marginTop="-5dp" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/layIntelligenceWisdom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="40%"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/layDexterityCharisma">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layIntelligence"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:id="@+id/textIntelligence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Intelligence"/>
+
+                <TextView
+                    android:id="@+id/textIntelligenceMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editIntelligence"
+                    android:layout_below="@+id/textIntelligence"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editIntelligence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkIntelligenceSavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textIntelligenceMod"
+                    android:layout_toEndOf="@+id/textIntelligenceMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+                <RadioButton
+                    android:id="@+id/rdoArcana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/chkIntelligenceSavingThrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/chkIntelligenceSavingThrow"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Arcana" />
+
+                <RadioButton
+                    android:id="@+id/rdoHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoArcana"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoArcana"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="History"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoInvestigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoHistory"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoHistory"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Investigation"
+                    android:layout_marginTop="-5dp"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rdoNature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoInvestigation"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoInvestigation"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Nature"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoReligion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoNature"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoNature"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Religion"
+                    android:layout_marginTop="-5dp" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/layWisdom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="50%"
+
+                android:layout_toRightOf="@id/layIntelligence">
+
+                <TextView
+                    android:id="@+id/textWisdom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+
+                    android:text="Wisdom"/>
+
+                <TextView
+                    android:id="@+id/textWisdomMod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_above="@+id/editWisdom"
+                    android:layout_below="@+id/textWisdom"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+
+                    android:textSize="36sp"
+                    android:text="+0" />
+
+                <EditText
+                    android:id="@+id/editWisdom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="30%"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_horizontal"
+                    android:paddingRight="10dp"
+
+                    android:text="0"/>
+
+                <CheckBox
+                    android:id="@+id/chkWisdomSavingThrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_alignTop="@+id/textWisdomMod"
+                    android:layout_toEndOf="@+id/textWisdomMod"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+
+                    android:text="Saving Throw" />
+
+                <RadioButton
+                    android:id="@+id/rdoAnimalHandling"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/chkWisdomSavingThrow"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/chkWisdomSavingThrow"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Animal Handling" />
+
+                <RadioButton
+                    android:id="@+id/rdoInsight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoAnimalHandling"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoAnimalHandling"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Insight"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoMedicine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoInsight"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoInsight"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Medicine"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoPerception"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoMedicine"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoMedicine"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Perception"
+                    android:layout_marginTop="-5dp" />
+
+                <RadioButton
+                    android:id="@+id/rdoSurvival"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="70%"
+
+                    android:layout_below="@+id/rdoPerception"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignStart="@+id/rdoPerception"
+                    android:paddingLeft="20dp"
+                    android:checked="false"
+
+                    android:scaleX="0.75"
+                    android:scaleY="0.75"
+                    android:text="Survival"
+                    android:layout_marginTop="-5dp" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>
+
+<!--<RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Acrobatics"
+                        android:id="@+id/radioButton4"
+                        android:checked="false"
+                        android:scaleX="0.75"
+                        android:scaleY="0.75"
+                        android:layout_marginLeft="-10dp" /> -->
