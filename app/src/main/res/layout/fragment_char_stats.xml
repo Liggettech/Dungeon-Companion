@@ -112,11 +112,10 @@
                 android:id="@+id/layStrength"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight=".5"
 
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true">
+                >
 
                 <TextView
                     android:id="@+id/textStrength"
@@ -504,9 +503,6 @@
             android:layout_weight=".4"
             android:weightSum="1"
 
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/layDexterityCharisma"
             android:orientation="horizontal">
 
             <RelativeLayout
