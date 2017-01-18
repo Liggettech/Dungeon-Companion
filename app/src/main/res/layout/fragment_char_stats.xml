@@ -1,24 +1,23 @@
 <LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/layStatsContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:weightSum="1"
 
-    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/abc_action_bar_default_height_material">
+    android:paddingBottom="@dimen/action_bar_vertical_margin"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/layAttributes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:weightSum="1"
         android:layout_weight=".15"
         android:baselineAligned="false"
@@ -42,7 +41,9 @@
             <EditText
                 android:id="@+id/editInspiration"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +65,9 @@
                 android:id="@+id/editProficiency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:textColorLink="@color/colorAccent" />
+
+                android:inputType="number"
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +88,9 @@
             <EditText
                 android:id="@+id/editPassiveWisdom"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+
+                android:text="0"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -113,9 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="15dp"
-                android:layout_weight=".5"
-
-                >
+                android:layout_weight=".5" >
 
                 <TextView
                     android:id="@+id/textStrength"
@@ -132,7 +135,6 @@
                     android:id="@+id/textStrengthMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editStrength"
                     android:layout_below="@+id/textStrength"
@@ -146,7 +148,6 @@
                     android:id="@+id/editStrength"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -159,7 +160,6 @@
                     android:id="@+id/chkStrengthSavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textStrengthMod"
                     android:layout_toEndOf="@+id/textStrengthMod"
@@ -172,7 +172,6 @@
                     android:id="@+id/rdoAthletics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/chkStrengthSavingThrow"
                     android:layout_alignParentEnd="true"
@@ -207,7 +206,6 @@
                     android:id="@+id/textConstitutionMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editConstitution"
                     android:layout_below="@+id/textConstitution"
@@ -221,7 +219,6 @@
                     android:id="@+id/editConstitution"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -234,7 +231,6 @@
                     android:id="@+id/chkConstitutionSavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textConstitutionMod"
                     android:layout_toEndOf="@+id/textConstitutionMod"
@@ -279,7 +275,6 @@
                     android:id="@+id/textDexterityMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editDexterity"
                     android:layout_below="@+id/textDexterity"
@@ -293,7 +288,6 @@
                     android:id="@+id/editDexterity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -306,7 +300,6 @@
                     android:id="@+id/chkDexteritySavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textDexterityMod"
                     android:layout_toEndOf="@+id/textDexterityMod"
@@ -319,7 +312,6 @@
                     android:id="@+id/rdoAcrobatics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/chkDexteritySavingThrow"
                     android:layout_alignParentEnd="true"
@@ -335,7 +327,6 @@
                     android:id="@+id/rdoSleightOfHand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoAcrobatics"
                     android:layout_alignParentEnd="true"
@@ -352,7 +343,6 @@
                     android:id="@+id/rdoStealth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoSleightOfHand"
                     android:layout_alignStart="@+id/rdoSleightOfHand"
@@ -387,7 +377,6 @@
                     android:id="@+id/textCharismaMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editCharisma"
                     android:layout_below="@+id/textCharisma"
@@ -401,7 +390,6 @@
                     android:id="@+id/editCharisma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -414,7 +402,6 @@
                     android:id="@+id/chkCharismaSavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textCharismaMod"
                     android:layout_toEndOf="@+id/textCharismaMod"
@@ -427,7 +414,6 @@
                     android:id="@+id/rdoDeception"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/chkCharismaSavingThrow"
                     android:layout_alignParentEnd="true"
@@ -443,7 +429,6 @@
                     android:id="@+id/rdoIntimidation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoDeception"
                     android:layout_alignParentEnd="true"
@@ -461,7 +446,6 @@
                     android:id="@+id/rdoPerformance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoIntimidation"
                     android:layout_alignParentEnd="true"
@@ -479,7 +463,6 @@
                     android:id="@+id/rdoPersuasion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoPerformance"
                     android:layout_alignParentEnd="true"
@@ -527,7 +510,6 @@
                     android:id="@+id/textIntelligenceMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editIntelligence"
                     android:layout_below="@+id/textIntelligence"
@@ -541,7 +523,6 @@
                     android:id="@+id/editIntelligence"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -554,7 +535,6 @@
                     android:id="@+id/chkIntelligenceSavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textIntelligenceMod"
                     android:layout_toEndOf="@+id/textIntelligenceMod"
@@ -567,7 +547,6 @@
                     android:id="@+id/rdoArcana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/chkIntelligenceSavingThrow"
                     android:layout_alignParentEnd="true"
@@ -583,7 +562,6 @@
                     android:id="@+id/rdoHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoArcana"
                     android:layout_alignParentEnd="true"
@@ -600,7 +578,6 @@
                     android:id="@+id/rdoInvestigation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoHistory"
                     android:layout_alignParentEnd="true"
@@ -618,7 +595,6 @@
                     android:id="@+id/rdoNature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoInvestigation"
                     android:layout_alignParentEnd="true"
@@ -635,7 +611,6 @@
                     android:id="@+id/rdoReligion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoNature"
                     android:layout_alignParentEnd="true"
@@ -671,7 +646,6 @@
                     android:id="@+id/textWisdomMod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_above="@+id/editWisdom"
                     android:layout_below="@+id/textWisdom"
@@ -685,7 +659,6 @@
                     android:id="@+id/editWisdom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="30%"
 
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
@@ -698,7 +671,6 @@
                     android:id="@+id/chkWisdomSavingThrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_alignTop="@+id/textWisdomMod"
                     android:layout_toEndOf="@+id/textWisdomMod"
@@ -711,7 +683,6 @@
                     android:id="@+id/rdoAnimalHandling"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/chkWisdomSavingThrow"
                     android:layout_alignParentEnd="true"
@@ -727,7 +698,6 @@
                     android:id="@+id/rdoInsight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoAnimalHandling"
                     android:layout_alignParentEnd="true"
@@ -744,7 +714,6 @@
                     android:id="@+id/rdoMedicine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoInsight"
                     android:layout_alignParentEnd="true"
@@ -761,7 +730,6 @@
                     android:id="@+id/rdoPerception"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoMedicine"
                     android:layout_alignParentEnd="true"
@@ -778,7 +746,6 @@
                     android:id="@+id/rdoSurvival"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_widthPercent="70%"
 
                     android:layout_below="@+id/rdoPerception"
                     android:layout_alignParentEnd="true"
@@ -798,13 +765,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
-<!--<RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Acrobatics"
-                        android:id="@+id/radioButton4"
-                        android:checked="false"
-                        android:scaleX="0.75"
-                        android:scaleY="0.75"
-                        android:layout_marginLeft="-10dp" /> -->

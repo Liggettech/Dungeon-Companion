@@ -26,17 +26,15 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:id="@+id/char_overlay_indicator"
-                    android:gravity="center">
-
-                </LinearLayout>
-
+                    android:gravity="center" />
         </RelativeLayout>
 
         <ImageButton
+            android:id="@+id/btnSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_menu_manage"
-            android:id="@+id/btnSettings"
+
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
