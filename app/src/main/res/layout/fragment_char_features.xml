@@ -1,14 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layFeaturesContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp">
+
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/action_bar_vertical_margin">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView">
+        android:id="@+id/scrollFeatures">
 
         <LinearLayout
             android:orientation="vertical"
@@ -25,14 +30,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Features &amp; Traits"
-                    android:id="@+id/textView4" />
+                    android:id="@+id/textFeaturesTraits" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText4" />
+                    android:id="@+id/editFeaturesTraits" />
             </LinearLayout>
 
             <LinearLayout
@@ -44,14 +49,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Proficiencies"
-                    android:id="@+id/textView3" />
+                    android:id="@+id/textProficiencies" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText3" />
+                    android:id="@+id/editProficiencies" />
             </LinearLayout>
 
             <LinearLayout
@@ -63,14 +68,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Personality Traits"
-                    android:id="@+id/textView2" />
+                    android:id="@+id/textPersonalityTraits" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText2" />
+                    android:id="@+id/editPersonalityTraits" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
@@ -81,14 +86,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ideals"
-                    android:id="@+id/textView2" />
+                    android:id="@+id/textIdeals" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText2" />
+                    android:id="@+id/editIdeals" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
@@ -99,14 +104,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bonds"
-                    android:id="@+id/textView2" />
+                    android:id="@+id/textBonds" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText2" />
+                    android:id="@+id/editBonds" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
@@ -117,14 +122,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Flaws"
-                    android:id="@+id/textView2" />
+                    android:id="@+id/textFlaws" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText2" />
+                    android:id="@+id/editFlaws" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

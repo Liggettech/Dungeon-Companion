@@ -1,9 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/layInventoryContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
+
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/action_bar_vertical_margin"
+
     android:weightSum="1">
 
     <LinearLayout
@@ -11,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".25"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:id="@+id/layMoneyAmmo">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -20,25 +29,27 @@
             android:layout_weight=".50"
             android:weightSum="1"
             android:gravity="center"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:id="@+id/layMoney">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/layMoneyCopper">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CP"
-                    android:id="@+id/textView24" />
+                    android:id="@+id/textMoneyCopper" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText8" />
+                    android:id="@+id/editMoneyCopper" />
             </LinearLayout>
 
             <LinearLayout
@@ -46,18 +57,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/layMoneySilver">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SP"
-                    android:id="@+id/textView25" />
+                    android:id="@+id/textMoneySilver" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText9" />
+                    android:id="@+id/editMoneySilver" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,18 +77,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/layMoneyElectrum">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="EP"
-                    android:id="@+id/textView26" />
+                    android:id="@+id/textMoneyElectrum" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText10" />
+                    android:id="@+id/editMoneyElectrum" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,18 +97,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/layMoneyGold">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="GP"
-                    android:id="@+id/textView27" />
+                    android:id="@+id/textMoneyGold" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText11" />
+                    android:id="@+id/editMoneyGold" />
             </LinearLayout>
 
             <LinearLayout
@@ -103,18 +117,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".2"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/layMoneyPlatinum">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PP"
-                    android:id="@+id/textView28" />
+                    android:id="@+id/textMoneyPlatinum" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editText12" />
+                    android:id="@+id/editMoneyPlatinum" />
             </LinearLayout>
 
         </LinearLayout>
@@ -125,12 +140,13 @@
             android:layout_height="0dp"
             android:layout_weight=".50"
             android:weightSum="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:id="@+id/layAmmo">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageView"
+                android:id="@+id/imgAmmoArrows"
                 android:src="@drawable/bow"
                 android:layout_weight=".125" />
 
@@ -139,13 +155,13 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="2"
-                android:id="@+id/editText"
+                android:id="@+id/editAmmoArrows"
                 android:layout_weight=".125" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageView2"
+                android:id="@+id/imgAmmoBolts"
                 android:src="@drawable/bolt"
                 android:layout_weight=".125" />
 
@@ -154,13 +170,13 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="2"
-                android:id="@+id/editText5"
+                android:id="@+id/editAmmoBolts"
                 android:layout_weight=".125" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageView3"
+                android:id="@+id/imgAmmoOther"
                 android:src="@drawable/bullet"
                 android:layout_weight=".125" />
 
@@ -169,13 +185,13 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="2"
-                android:id="@+id/editText6"
+                android:id="@+id/editAmmoOther"
                 android:layout_weight=".125" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/imageView4"
+                android:id="@+id/imgAmmoBombs"
                 android:src="@drawable/bomb"
                 android:layout_weight=".125" />
 
@@ -184,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="2"
-                android:id="@+id/editText7"
+                android:id="@+id/editAmmoBombs"
                 android:layout_weight=".125" />
         </LinearLayout>
     </LinearLayout>
@@ -193,19 +209,20 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".75">
+        android:layout_weight=".75"
+        android:id="@+id/layBagOfHolding">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Inventory"
-            android:id="@+id/textView23" />
+            android:text="Bag of Holding"
+            android:id="@+id/textBagOfHolding" />
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView" />
+            android:id="@+id/listBagOfHolding" />
 
     </LinearLayout>
 </LinearLayout>

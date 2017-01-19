@@ -1,5 +1,4 @@
 <LinearLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:id="@+id/layStatsContainer"
@@ -19,7 +18,7 @@
         android:layout_height="0dp"
 
         android:weightSum="1"
-        android:layout_weight=".15"
+        android:layout_weight=".12"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -43,7 +42,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="0"/>
+                android:text="0"
+                android:ems="2"
+                android:gravity="center_horizontal"
+                android:minEms="2"
+                android:numeric="integer" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +70,11 @@
                 android:layout_height="wrap_content"
 
                 android:inputType="number"
-                android:text="0"/>
+                android:text="0"
+                android:ems="2"
+                android:gravity="center_horizontal"
+                android:numeric="integer"
+                android:minEms="2" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +97,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="0"/>
+                android:text="0"
+                android:gravity="center_horizontal"
+                android:ems="2"
+                android:minEms="2"
+                android:numeric="integer" />
         </LinearLayout>
     </LinearLayout>
 
@@ -98,7 +109,7 @@
         android:id="@+id/layStats"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".85"
+        android:layout_weight=".88"
         android:weightSum="1"
         android:orientation="vertical">
 
@@ -106,19 +117,19 @@
             android:id="@+id/layStrengthConstitution"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
             android:layout_weight=".25"
             android:weightSum="1"
 
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:id="@+id/layStrength"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="15dp"
-                android:layout_weight=".5" >
+                android:layout_weight=".5"
+                android:layout_marginRight="10dp">
 
                 <TextView
                     android:id="@+id/textStrength"
@@ -152,9 +163,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkStrengthSavingThrow"
@@ -187,7 +198,7 @@
 
             <RelativeLayout
                 android:id="@+id/layConstitution"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5" >
 
@@ -223,9 +234,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkConstitutionSavingThrow"
@@ -292,9 +303,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkDexteritySavingThrow"
@@ -352,7 +363,8 @@
 
                     android:scaleX="0.75"
                     android:scaleY="0.75"
-                    android:text="Stealth" />
+                    android:text="Stealth"
+                    android:layout_marginTop="-5dp" />
 
             </RelativeLayout>
 
@@ -394,9 +406,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkCharismaSavingThrow"
@@ -527,9 +539,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkIntelligenceSavingThrow"
@@ -663,9 +675,9 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:gravity="center_horizontal"
-                    android:paddingRight="10dp"
 
-                    android:text="0"/>
+                    android:text="0"
+                    android:layout_marginLeft="15dp" />
 
                 <CheckBox
                     android:id="@+id/chkWisdomSavingThrow"
