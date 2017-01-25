@@ -7,129 +7,194 @@
 
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/action_bar_vertical_margin">
+    android:paddingBottom="@dimen/action_bar_vertical_margin"
+    android:paddingRight="5dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollFeatures">
+        android:id="@+id/scrollFeatures"
+        android:fillViewport="true">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp">
+            android:layout_height="wrap_content"
+            android:id="@+id/layFeaturesInner"
+            android:weightSum="6"
+            android:paddingRight="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/layFeaturesTraits"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Features &amp; Traits"
-                    android:id="@+id/textFeaturesTraits" />
+                    android:id="@+id/textFeaturesTraits"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
+                    android:inputType="textCapSentences|textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editFeaturesTraits" />
+                    android:id="@+id/editFeaturesTraits"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/layProficiencies"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Proficiencies"
-                    android:id="@+id/textProficiencies" />
+                    android:id="@+id/textProficiencies"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editProficiencies" />
+                    android:id="@+id/editProficiencies"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/layPersonalityTraits"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Personality Traits"
-                    android:id="@+id/textPersonalityTraits" />
+                    android:id="@+id/textPersonalityTraits"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editPersonalityTraits" />
+                    android:id="@+id/editPersonalityTraits"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/layIdeals"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ideals"
-                    android:id="@+id/textIdeals" />
+                    android:id="@+id/textIdeals"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editIdeals" />
+                    android:id="@+id/editIdeals"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/layBonds"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bonds"
-                    android:id="@+id/textBonds" />
+                    android:id="@+id/textBonds"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editBonds" />
+                    android:id="@+id/editBonds"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:id="@+id/layFlaws"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Flaws"
-                    android:id="@+id/textFlaws" />
+                    android:id="@+id/textFlaws"
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editFlaws" />
+                    android:id="@+id/editFlaws"
+                    android:maxLength="500"
+                    android:lines="3"
+                    android:scrollbars="vertical"
+                    android:textSize="14sp"
+                    android:gravity="start" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

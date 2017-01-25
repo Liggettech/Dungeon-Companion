@@ -5,6 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class FragmentCharSpells extends Fragment {
     /**
@@ -12,6 +17,11 @@ public class FragmentCharSpells extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -32,6 +42,40 @@ public class FragmentCharSpells extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_char_spells, container, false);
+
+        // get the listview
+        expListView = (ExpandableListView) rootView.findViewById(R.id.listSpells);
+
+        // preparing list data
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter(getContext(), listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
         return rootView;
+    }
+
+    /*
+     * Preparing the list data
+     */
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("Cantrips");
+        listDataHeader.add("Level 1");
+
+        // Adding child data
+        List<String> level0 = new ArrayList<String>();
+        level0.add("Null");
+
+        List<String> level1 = new ArrayList<String>();
+        level1.add("Null");
+
+        listDataChild.put(listDataHeader.get(0), level0); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), level1);
     }
 }
