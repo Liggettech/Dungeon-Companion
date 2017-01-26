@@ -2,14 +2,21 @@ package liggettech.dungeoncompanion;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static java.security.AccessController.getContext;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -40,7 +47,30 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final String childText = (String) getChild(groupPosition, childPosition);
+        //get text and unique ID from Hash Map
+        String childText = (String) getChild(groupPosition, childPosition);
+        String childUID;
+
+        //ensure captured string for text is present and valid
+        if ((childText.length() > 6) && (childText.contains("@"))) {
+            childUID = childText.substring(childText.length() - 5);
+
+            //ensure UID is valid
+            if (childUID.matches("[AEGMTW]\\d{4}")) {
+                childText = childText.substring(0, childText.length() - 6);
+            }
+
+            else {
+                childText = "Null";
+                childUID = "Item with invalid UID";
+            }
+        }
+
+        else {
+            childText = "Null";
+            childUID = "Item with invalid name";
+        }
+
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -52,6 +82,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.textListItem);
 
         txtListChild.setText(childText);
+
+        /* Image Button code*/
+        ImageButton btnListItemInfo = (ImageButton) convertView.findViewById(R.id.btnListItemInfo);
+
+        btnListItemInfo.setTag(childUID);
+
         return convertView;
     }
 

@@ -5,7 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +49,7 @@ public class FragmentCharInventory extends Fragment {
         // get the listview
         expListView = (ExpandableListView) rootView.findViewById(R.id.listBagOfHolding);
 
-        // preparing list data
+        // populate list data
         prepareListData();
 
         listAdapter = new ExpandableListAdapter(getContext(), listDataHeader, listDataChild);
@@ -65,31 +68,37 @@ public class FragmentCharInventory extends Fragment {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Armor");
-        listDataHeader.add("Adventuring Gear");
-        listDataHeader.add("Tools");
-        listDataHeader.add("Trade Goods");
-        listDataHeader.add("Weapons");
-        listDataHeader.add("Misc.");
+        listDataHeader.add("Armor");            //UID starts with 'A'
+        listDataHeader.add("Adventuring Gear"); //UID starts with 'G'
+        listDataHeader.add("Tools");            //UID starts with 'T'
+        listDataHeader.add("Trade Goods");      //UID starts with 'E'
+        listDataHeader.add("Weapons");          //UID starts with 'W'
+        listDataHeader.add("Misc.");            //UID starts with 'M'
 
         // Adding child data
         List<String> armor = new ArrayList<String>();
-        armor.add("Null");
+        //Valid UID = Item@A0000
+        armor.add("Helmet@A0001");   //valid
+        armor.add("Helmet@A00001");  //invalid, long UID
+        armor.add("Helmet@A01");     //invalid, short UID
+        armor.add("Helmet@a0001");   //invalid, lowercase UID category identifier
+        armor.add("Helmet@0001");    //invalid, missing UID category identifier
+        armor.add("Helmet@Z0001");   //invalid, invalid UID category identifier
 
         List<String> gear = new ArrayList<String>();
-        gear.add("Null");
+        gear.add("Tent");           //invalid, no UID
 
         List<String> tools = new ArrayList<String>();
-        tools.add("Null");
+        tools.add("");              //invalid, null string
 
         List<String> goods = new ArrayList<String>();
-        goods.add("Null");
+        goods.add("@G0001");         //invalid, no item
 
         List<String> weapons = new ArrayList<String>();
-        weapons.add("Null");
+        weapons.add("Sword@W0001");  //valid
 
         List<String> misc = new ArrayList<String>();
-        misc.add("Null");
+        misc.add("Extra#M0001");     //invalid, wrong UID identifier
 
         listDataChild.put(listDataHeader.get(0), armor); // Header, Child data
         listDataChild.put(listDataHeader.get(1), gear);

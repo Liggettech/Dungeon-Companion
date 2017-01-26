@@ -2,34 +2,40 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/expandableListPreferredChildPaddingLeft">
+    android:id="@+id/layListItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/page_selected"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_vertical" />
+    android:paddingLeft="@dimen/expandableListPreferredChildPaddingLeft">
 
-        <TextView
-            android:id="@+id/textListItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+    <ImageView
+        android:id="@+id/imgListItemBullet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-        <ImageButton
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_menu_info_details"
-            android:id="@+id/btnListItemInfo"
-            android:layout_gravity="right|center_vertical|end"
-            android:background="@android:color/transparent"
-            android:layout_width="wrap_content"
-            android:adjustViewBounds="false" />
+        app:srcCompat="@drawable/page_selected"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/textListItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:layout_weight="1"/>
+
+    <ImageButton
+        android:id="@+id/btnListItemInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:srcCompat="@android:drawable/ic_menu_info_details"
+        android:layout_gravity="right|center_vertical|end"
+        android:background="@android:color/transparent"
+        android:focusable="false"
+        android:onClick="displayListItemInfo" />
 </LinearLayout>

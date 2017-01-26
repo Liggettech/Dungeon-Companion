@@ -18,8 +18,10 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,5 +188,13 @@ public class CharacterSheet extends AppCompatActivity {
             Drawable drawable = res.getDrawable(drawableId);
             dots.get(i).setImageDrawable(drawable);
         }
+    }
+
+    /* Info button expanded list items */
+    public void displayListItemInfo(View view) {
+        ImageButton btnListItemInfo = (ImageButton) view;
+        String listItemTag = btnListItemInfo.getTag().toString() + " pressed";
+
+        Toast.makeText(getApplicationContext(), listItemTag, Toast.LENGTH_SHORT).show();
     }
 }

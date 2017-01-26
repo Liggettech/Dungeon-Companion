@@ -210,14 +210,34 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".75"
-        android:id="@+id/layBagOfHolding">
+        android:id="@+id/layBagOfHolding"
+        android:layout_marginTop="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Bag of Holding"
-            android:id="@+id/textBagOfHolding" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Bag of Holding"
+                android:id="@+id/textBagOfHolding"
+                android:textSize="24sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Add Item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnInventoryAdd"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:maxWidth="30dp" />
+        </LinearLayout>
 
         <ExpandableListView
             android:layout_width="match_parent"
