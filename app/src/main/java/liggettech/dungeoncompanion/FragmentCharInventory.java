@@ -76,29 +76,24 @@ public class FragmentCharInventory extends Fragment {
         listDataHeader.add("Misc.");            //UID starts with 'M'
 
         // Adding child data
+        // Valid UID = Item@A0000
         List<String> armor = new ArrayList<String>();
-        //Valid UID = Item@A0000
-        armor.add("Helmet@A0001");   //valid
-        armor.add("Helmet@A00001");  //invalid, long UID
-        armor.add("Helmet@A01");     //invalid, short UID
-        armor.add("Helmet@a0001");   //invalid, lowercase UID category identifier
-        armor.add("Helmet@0001");    //invalid, missing UID category identifier
-        armor.add("Helmet@Z0001");   //invalid, invalid UID category identifier
+        armor.add("Helmet@A0001");
 
         List<String> gear = new ArrayList<String>();
-        gear.add("Tent");           //invalid, no UID
+        gear.add("Torch@G0001");
 
         List<String> tools = new ArrayList<String>();
-        tools.add("");              //invalid, null string
+        tools.add("Herbalism@T0001");
 
         List<String> goods = new ArrayList<String>();
-        goods.add("@G0001");         //invalid, no item
+        goods.add("Wheat@E0001");
 
         List<String> weapons = new ArrayList<String>();
-        weapons.add("Sword@W0001");  //valid
+        weapons.add("Sword@W0001");
 
         List<String> misc = new ArrayList<String>();
-        misc.add("Extra#M0001");     //invalid, wrong UID identifier
+        misc.add("Extra@M0001");
 
         listDataChild.put(listDataHeader.get(0), armor); // Header, Child data
         listDataChild.put(listDataHeader.get(1), gear);

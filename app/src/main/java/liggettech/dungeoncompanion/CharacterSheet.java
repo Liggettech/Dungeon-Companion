@@ -1,7 +1,9 @@
 package liggettech.dungeoncompanion;
 
+import android.app.Dialog;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -18,9 +20,11 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -193,8 +197,11 @@ public class CharacterSheet extends AppCompatActivity {
     /* Info button expanded list items */
     public void displayListItemInfo(View view) {
         ImageButton btnListItemInfo = (ImageButton) view;
-        String listItemTag = btnListItemInfo.getTag().toString() + " pressed";
+        String listItemTag = btnListItemInfo.getTag().toString();
 
-        Toast.makeText(getApplicationContext(), listItemTag, Toast.LENGTH_SHORT).show();
+        DialogFragmentInfoPanel panel = DialogFragmentInfoPanel.newInstance(listItemTag);
+        panel.show(getSupportFragmentManager(),"InfoPanel");
+
+        //Toast.makeText(getApplicationContext(), listItemTag, Toast.LENGTH_SHORT).show();
     }
 }
