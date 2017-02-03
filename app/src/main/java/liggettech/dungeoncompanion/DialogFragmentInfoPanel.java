@@ -43,17 +43,30 @@ public class DialogFragmentInfoPanel extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        Object subject = findObjectInfo();
+        //Object subject = findObjectInfo();
 
-        View view = inflater.inflate(R.layout.dialog_info_panel,container, false);
+        View view ; //= inflater.inflate(R.layout.dialog_info_armor,container, false);
 
-        View subjectTitle = view.findViewById(R.id.textInfoPanelTitle);
+        switch (category) {
+            case 'A':
+                view = inflater.inflate(R.layout.dialog_info_armor,container, false);
+                break;
+            case 'W':
+                view = inflater.inflate(R.layout.dialog_info_weapon,container, false);
+                break;
+            default:
+                view = inflater.inflate(R.layout.dialog_info_armor,container, false);
+                break;
+        }
+
+        subjectName = uid;
+        View subjectTitle = view.findViewById(R.id.textInfoTitle);
         ((TextView)subjectTitle).setText(subjectName);
 
         final Dialog myDialog = getDialog();
 
         //Close button
-        Button close = (Button) view.findViewById(R.id.btnInfoPanelClose);
+        Button close = (Button) view.findViewById(R.id.btnInfoClose);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
