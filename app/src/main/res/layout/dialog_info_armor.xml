@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/layInfoArmorContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,203 +12,225 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="Armor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textInfoTitle"
-            android:textSize="30sp"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
-
-        <ImageView
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/shield"
-
-            android:id="@+id/imgInfoIcon"
-            android:layout_width="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="-12dp" />
-
-    </RelativeLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/layInfoTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="30sp"
+            android:text="Armor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layInfoArmorStats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
         <RelativeLayout
+            android:id="@+id/layInfoArmorAC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginRight="15dp">
 
+            <TextView
+                android:text="Medium Armor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/lblInfoArmorType" />
+
             <ImageView
-                app:srcCompat="@drawable/ac"
                 android:id="@+id/imgInfoArmorShield"
-                android:layout_height="100dp"
                 android:layout_width="100dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
+                android:layout_height="100dp"
+
+                android:layout_centerHorizontal="true"
+
+                app:srcCompat="@drawable/ac"
+                android:layout_below="@+id/lblInfoArmorType" />
 
             <TextView
-                android:text="AC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lblInfoArmorAC"
-                android:textSize="16sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/textInfoArmorAC"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:text="00"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/textInfoArmorAC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/lblInfoArmorType"
+
                 android:textSize="36sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:typeface="serif" />
+                android:typeface="serif"
+                android:text="00"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/lblInfoArmorAC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/textInfoArmorAC"
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginTop="3dp"
+
+                android:text="AC"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
         <TableLayout
+            android:id="@+id/tblInfoArmorStats"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="*">
 
             <TableRow
+                android:id="@+id/rowInfoArmorCost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
-                    android:text="Cost"
+                    android:id="@+id/lblInfoCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lblInfoArmorCost"
+
+                    android:paddingEnd="10dp"
                     android:layout_gravity="center_vertical|end"
-                    android:paddingEnd="10dp" />
+
+                    android:text="Cost" />
 
                 <TextView
-                    android:text="0"
+                    android:id="@+id/textInfoCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textInfoArmorCost"
-                    android:layout_gravity="center" />
+
+                    android:layout_gravity="center"
+                    android:text="0" />
             </TableRow>
 
             <TableRow
+                android:id="@+id/rowInfoArmorWeight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
-                    android:text="Weight"
+                    android:id="@+id/lblInfoWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lblInfoArmorWeight"
+
+                    android:paddingEnd="10dp"
                     android:layout_gravity="center_vertical|end"
-                    android:paddingEnd="10dp" />
+                    android:text="Weight" />
 
                 <TextView
-                    android:text="0"
+                    android:id="@+id/textInfoWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textInfoArmorWeight"
-                    android:layout_gravity="center" />
+
+                    android:layout_gravity="center"
+                    android:text="0" />
             </TableRow>
 
             <TableRow
+                android:id="@+id/rowInfoArmorRequirement"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
-                    android:text="Strength Requirement"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/lblInfoArmorRequirement"
-                    android:layout_gravity="end|center_vertical"
-                    android:paddingEnd="10dp" />
-
-                <TextView
-                    android:text="None"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:paddingEnd="10dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="Strength Requirement" />
+
+                <TextView
                     android:id="@+id/textInfoArmorRequirement"
-                    android:layout_gravity="center" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:text="None" />
             </TableRow>
 
             <TableRow
+                android:id="@+id/rowInfoArmorStealth"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
-                    android:text="Stealth Disadvantage?"
+                    android:id="@+id/lblInfoArmorStealth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lblInfoArmorStealth"
+
+                    android:paddingEnd="10dp"
                     android:layout_gravity="end|center_vertical"
-                    android:paddingEnd="10dp" />
+                    android:text="Stealth Disadvantage?" />
 
                 <TextView
-                    android:text="Yes"
+                    android:id="@+id/textInfoArmorStealth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textInfoArmorStealth"
-                    android:layout_gravity="center" />
+
+                    android:layout_gravity="center"
+                    android:text="Yes" />
             </TableRow>
         </TableLayout>
-
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/layInfoDescription"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+        android:orientation="vertical"
         android:weightSum="1">
 
         <ScrollView
+            android:id="@+id/scrollInfoDescription"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.85"
-            android:paddingBottom="10dp">
 
-            <LinearLayout
+            android:layout_weight="0.85"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/textInfoDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:id="@+id/textInfoArmorDescription"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    android:textSize="16sp"
-                    android:layout_marginBottom="10dp" />
-            </LinearLayout>
+                android:textSize="16sp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
         </ScrollView>
 
         <Button
-            android:text="Close"
+            android:id="@+id/btnInfoClose"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/btnInfoClose"
+
+            android:layout_weight="0.15"
             android:gravity="center"
-            android:layout_weight="0.15"/>
 
+            android:text="Close"/>
     </LinearLayout>
-
-
 </LinearLayout>

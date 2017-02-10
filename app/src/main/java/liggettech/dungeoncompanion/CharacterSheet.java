@@ -1,9 +1,7 @@
 package liggettech.dungeoncompanion;
 
-import android.app.Dialog;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -11,21 +9,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +41,8 @@ public class CharacterSheet extends AppCompatActivity {
     private List<ImageView> dots;
     private Runnable hideDots;
 
+    ItemInfoDatabase db = new ItemInfoDatabase(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +53,17 @@ public class CharacterSheet extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.char_overlay_viewpager);
+        mViewPager = (ViewPager) findViewById(R.id.charSheetOverlayViewpager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(2, false);
         addPageIndicator();
+
+        //Load Item Database
+        /*Armor armor1 = new Armor("Leather Armor", "Test");
+        Armor armor2 = new Armor("Studded Armor", "Test Too");
+
+        db.insertItem(armor1);
+        db.insertItem(armor2);*/
     }
 
     @Override
@@ -125,7 +124,7 @@ public class CharacterSheet extends AppCompatActivity {
      */
     public void addPageIndicator() {
         dots = new ArrayList<>();
-        final LinearLayout dotsLayout = (LinearLayout)findViewById(R.id.char_overlay_indicator);
+        final LinearLayout dotsLayout = (LinearLayout)findViewById(R.id.charSheetOverlayIndicator);
 
         // Set fade out timer and animation
 
@@ -199,7 +198,10 @@ public class CharacterSheet extends AppCompatActivity {
         ImageButton btnListItemInfo = (ImageButton) view;
         String listItemTag = btnListItemInfo.getTag().toString();
 
-        DialogFragmentInfoPanel panel = DialogFragmentInfoPanel.newInstance(listItemTag);
+
+        Armor foundArmor = db.getItemInfo(listItemTag);
+
+        DialogFragmentInfoPanel panel = DialogFragmentInfoPanel.newInstance(listItemTag, foundArmor);
         panel.show(getSupportFragmentManager(),"InfoPanel");
 
         //Toast.makeText(getApplicationContext(), listItemTag, Toast.LENGTH_SHORT).show();

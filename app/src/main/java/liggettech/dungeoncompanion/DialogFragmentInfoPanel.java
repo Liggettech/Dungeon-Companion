@@ -3,6 +3,7 @@ package liggettech.dungeoncompanion;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +12,19 @@ import android.widget.TextView;
 
 public class DialogFragmentInfoPanel extends DialogFragment {
 
-    String uid, subjectName;
+    String uid;
     char category;
+    static Armor foundArmor;
+    ItemInfoDatabase db = new ItemInfoDatabase(getContext());
 
-    static DialogFragmentInfoPanel newInstance (String uid) {
+    static DialogFragmentInfoPanel newInstance (String uid, Armor a) {
         DialogFragmentInfoPanel panel = new DialogFragmentInfoPanel();
 
         Bundle args = new Bundle();
         args.putString("UID", uid);
         panel.setArguments(args);
+
+        foundArmor = a;
 
         return panel;
     }
@@ -43,13 +48,19 @@ public class DialogFragmentInfoPanel extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //Object subject = findObjectInfo();
+        String objName, objDescription;
+
+        objName = "empty";
+        objDescription = "empty";
 
         View view ; //= inflater.inflate(R.layout.dialog_info_armor,container, false);
 
         switch (category) {
             case 'A':
                 view = inflater.inflate(R.layout.dialog_info_armor,container, false);
+
+                objName = foundArmor.getName();
+                objDescription = foundArmor.getDescription();
                 break;
             case 'W':
                 view = inflater.inflate(R.layout.dialog_info_weapon,container, false);
@@ -59,9 +70,12 @@ public class DialogFragmentInfoPanel extends DialogFragment {
                 break;
         }
 
-        subjectName = uid;
+        //subjectName = uid;
         View subjectTitle = view.findViewById(R.id.textInfoTitle);
-        ((TextView)subjectTitle).setText(subjectName);
+        ((TextView)subjectTitle).setText(objName);
+
+        View subjectDescription = view.findViewById(R.id.textInfoDescription);
+        ((TextView)subjectDescription).setText(objDescription);
 
         final Dialog myDialog = getDialog();
 
