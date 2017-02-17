@@ -1,4 +1,4 @@
-package liggettech.dungeoncompanion;
+package liggettech.dungeoncompanion.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,9 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import liggettech.dungeoncompanion.R;
+import liggettech.dungeoncompanion.adapters.ExpandableListAdapter;
 
 public class FragmentCharSpells extends Fragment {
     /**

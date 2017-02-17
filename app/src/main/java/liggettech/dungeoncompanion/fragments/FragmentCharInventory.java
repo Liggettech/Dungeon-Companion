@@ -1,4 +1,4 @@
-package liggettech.dungeoncompanion;
+package liggettech.dungeoncompanion.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,9 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import liggettech.dungeoncompanion.R;
+import liggettech.dungeoncompanion.adapters.ExpandableListAdapter;
 
 public class FragmentCharInventory extends Fragment {
     /**
@@ -75,7 +78,10 @@ public class FragmentCharInventory extends Fragment {
         // Adding child data
         // Valid UID = Item@A0000
         List<String> armor = new ArrayList<String>();
-        armor.add("Helmet@A0001");
+        armor.add("Padded@A0001");
+        armor.add("Leather@A0002");
+        armor.add("Hide@A0004");
+        armor.add("Studded Leather@A0003");
 
         List<String> gear = new ArrayList<String>();
         gear.add("Torch@G0001");
@@ -87,7 +93,9 @@ public class FragmentCharInventory extends Fragment {
         goods.add("Wheat@E0001");
 
         List<String> weapons = new ArrayList<String>();
-        weapons.add("Sword@W0001");
+        weapons.add("Club@W0001");
+        weapons.add("Dagger@W0002");
+        weapons.add("Greatclub@W0003");
 
         List<String> misc = new ArrayList<String>();
         misc.add("Extra@M0001");

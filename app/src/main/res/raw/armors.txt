@@ -1,3 +1,4 @@
-Padded,Padded armor consists of quilted layers of cloth and batting.
-Leather, The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.
-Studded Leather, Made from tough but flexible leather, studded leather is reinforced with close-set rivets ar spikes.
+Padded > 500 > 8 > Padded armor consists of quilted layers of cloth and batting. > Light Armor > 11d > 0 > true
+Leather > 1000 > 10 > The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials. > Light Armor > 11d > 0 > false
+Studded Leather > 4500 > 13 > Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes. > Light Armor > 12d > 0 > false
+Hide > 1000 > 12 > This crude armor consists of thick furs and pelts. It is commonly worn by barbarian tribes, evil humanoids, and other folk who lack access to the tools and materials needed to create better armor. > Medium Armor > 12d > 0 > false

@@ -1,4 +1,12 @@
-package liggettech.dungeoncompanion;
+package liggettech.dungeoncompanion.activities;
+import liggettech.dungeoncompanion.*;
+import liggettech.dungeoncompanion.data.ItemInfoDatabase;
+import liggettech.dungeoncompanion.fragments.FragmentCharCore;
+import liggettech.dungeoncompanion.fragments.FragmentCharFeatures;
+import liggettech.dungeoncompanion.fragments.FragmentCharInventory;
+import liggettech.dungeoncompanion.fragments.FragmentCharSpells;
+import liggettech.dungeoncompanion.fragments.FragmentCharStats;
+import liggettech.dungeoncompanion.interfaces.DialogFragmentInfoPanel;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -20,7 +28,6 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CharacterSheet extends AppCompatActivity {
 
     /**
@@ -41,7 +48,7 @@ public class CharacterSheet extends AppCompatActivity {
     private List<ImageView> dots;
     private Runnable hideDots;
 
-    ItemInfoDatabase db = new ItemInfoDatabase(this);
+    ItemInfoDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +65,7 @@ public class CharacterSheet extends AppCompatActivity {
         mViewPager.setCurrentItem(2, false);
         addPageIndicator();
 
-        //Load Item Database
-        /*Armor armor1 = new Armor("Leather Armor", "Test");
-        Armor armor2 = new Armor("Studded Armor", "Test Too");
-
-        db.insertItem(armor1);
-        db.insertItem(armor2);*/
+        db = new ItemInfoDatabase(this);
     }
 
     @Override
@@ -195,13 +197,13 @@ public class CharacterSheet extends AppCompatActivity {
 
     /* Info button expanded list items */
     public void displayListItemInfo(View view) {
+
+        //grab tag of item just selected
         ImageButton btnListItemInfo = (ImageButton) view;
         String listItemTag = btnListItemInfo.getTag().toString();
 
-
-        Armor foundArmor = db.getItemInfo(listItemTag);
-
-        DialogFragmentInfoPanel panel = DialogFragmentInfoPanel.newInstance(listItemTag, foundArmor);
+        //create a show new info panel
+        DialogFragmentInfoPanel panel = DialogFragmentInfoPanel.newInstance(listItemTag);
         panel.show(getSupportFragmentManager(),"InfoPanel");
 
         //Toast.makeText(getApplicationContext(), listItemTag, Toast.LENGTH_SHORT).show();

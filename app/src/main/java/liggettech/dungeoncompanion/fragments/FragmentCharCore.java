@@ -1,4 +1,4 @@
-package liggettech.dungeoncompanion;
+package liggettech.dungeoncompanion.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentCharFeatures extends Fragment {
+import liggettech.dungeoncompanion.R;
+
+public class FragmentCharCore extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -17,21 +19,21 @@ public class FragmentCharFeatures extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static FragmentCharFeatures newInstance(int sectionNumber) {
-        FragmentCharFeatures fragment = new FragmentCharFeatures();
+    public static FragmentCharCore newInstance(int sectionNumber) {
+        FragmentCharCore fragment = new FragmentCharCore();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public FragmentCharFeatures() {
+    public FragmentCharCore() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_char_features, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_char_core, container, false);
         return rootView;
     }
 }

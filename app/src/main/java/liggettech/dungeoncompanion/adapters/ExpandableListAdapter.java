@@ -1,22 +1,16 @@
-package liggettech.dungeoncompanion;
+package liggettech.dungeoncompanion.adapters;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
-
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import static java.security.AccessController.getContext;
+import liggettech.dungeoncompanion.R;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 

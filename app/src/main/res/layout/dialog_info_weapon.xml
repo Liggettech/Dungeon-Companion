@@ -9,15 +9,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:id="@+id/layInfoWeaponContainer">
+    android:id="@+id/layInfoWeaponContainer"
+    android:background="@android:color/holo_red_light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/layInfoTitle">
+        android:id="@+id/layInfoTitle"
+        android:background="@drawable/layout_rounded_top"
+        android:padding="2dp">
 
         <TextView
             android:text="Weapon"
@@ -28,142 +30,124 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:id="@+id/layWeaponStatsContainer">
+        android:layout_height="220dp"
+        android:id="@+id/layInfoWeaponStats"
+        android:background="@android:color/background_light"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp">
 
         <RelativeLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:text="Damage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lblInfoWeaponDamage"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/layInfoWeaponDamage">
 
             <TextView
                 android:text="1d6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
                 android:id="@+id/textInfoWeaponDamage"
-                android:textSize="36sp" />
+                android:textSize="36sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:text="bludgeoning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/textInfoWeaponDamageType"
                 android:layout_below="@+id/textInfoWeaponDamage"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/textInfoWeaponDamageType" />
-
-
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
+
+        <TextView
+            android:text="Proficiency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInfoWeaponProficiency"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <ImageView
-            app:srcCompat="@drawable/axe"
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="150dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            app:srcCompat="@drawable/weapon"
+            android:id="@+id/imgInfoWeapon"
+            android:layout_below="@id/textInfoWeaponProficiency"
+            android:layout_centerHorizontal="true" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <TextView
+            android:text="Cost:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblInfoCost"
+            android:layout_alignBaseline="@+id/textInfoCost"
+            android:layout_alignBottom="@+id/textInfoCost"
+            android:layout_alignEnd="@+id/lblInfoWeight" />
 
-            <TextView
-                android:text="Properties"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lblInfoWeaponProperties"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInfoCost"
+            android:layout_above="@+id/textInfoWeight"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"/>
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="false"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/lblInfoWeaponProperties" />
-        </RelativeLayout>
-    </LinearLayout>
+        <TextView
+            android:text="Weight:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblInfoWeight"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/textInfoWeight" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:layout_marginBottom="10dp">
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInfoWeight"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="Cost:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:gravity="right"
-                android:paddingRight="10dp" />
-
-            <TextView
-                android:text="0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView4"
-                android:layout_gravity="left" />
-
-            <TextView
-                android:text="Weight:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:gravity="right"
-                android:paddingRight="10dp" />
-
-            <TextView
-                android:text="0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:gravity="left" />
-        </TableRow>
-
-    </TableLayout>
+    </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/layInfoDescription"
+        android:id="@+id/layInfoWeaponProperties"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         android:orientation="vertical"
         android:weightSum="1">
 
+        <TextView
+            android:text="Properties"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblInfoWeaponProperties"
+            android:textSize="24sp"
+            android:background="@android:color/background_light"
+            android:padding="5dp" />
+
         <ScrollView
-            android:id="@+id/scrollInfoDescription"
+            android:id="@+id/scrollInfoWeaponProperties"
             android:layout_width="match_parent"
             android:layout_height="0dp"
 
             android:layout_weight="0.85"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/layout_rounded_bottom"
+            android:padding="5dp">
 
-            <TextView
-                android:id="@+id/textInfoDescription"
+            <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textSize="16sp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                android:layout_height="match_parent"
+                android:id="@+id/listInfoWeaponProperties" />
         </ScrollView>
 
         <Button
@@ -173,6 +157,8 @@
 
             android:layout_weight="0.15"
             android:gravity="center"
-            android:text="Close" />
+            android:text="Close"
+            android:background="@android:drawable/btn_default_small" />
     </LinearLayout>
+
 </LinearLayout>
