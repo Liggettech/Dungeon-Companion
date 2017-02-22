@@ -80,8 +80,8 @@ public class FragmentCharInventory extends Fragment {
         List<String> armor = new ArrayList<String>();
         armor.add("Padded@A0001");
         armor.add("Leather@A0002");
-        armor.add("Hide@A0004");
         armor.add("Studded Leather@A0003");
+        armor.add("Hide@A0004");
 
         List<String> gear = new ArrayList<String>();
         gear.add("Torch@G0001");

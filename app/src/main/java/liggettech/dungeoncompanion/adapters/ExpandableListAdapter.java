@@ -41,46 +41,44 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
+        LayoutInflater infalInflater = (LayoutInflater) this._context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         //get text and unique ID from Hash Map
         String childText = (String) getChild(groupPosition, childPosition);
-        String childUID;
 
         //ensure captured string for text is present and valid
-        if ((childText.length() > 6) && (childText.contains("@"))) {
-            childUID = childText.substring(childText.length() - 5);
+        if ((childText.length() > 2) && (childText.contains("@"))) {
+            String childUID = childText.substring(childText.lastIndexOf("@") + 1);
 
-            //ensure UID is valid
-            if (childUID.matches("[AEGMTW]\\d{4}")) {
+            //UID is valid for weapon properties
+            if (childUID.startsWith("P")) {
+                childText = childText.substring(0, childText.length() - 2);
+
+                convertView = infalInflater.inflate(R.layout.list_item_property, null);
+            }
+
+            //UID is valid for inventory
+            else if (childUID.matches("[AEGMTW]\\d{4}")) {
                 childText = childText.substring(0, childText.length() - 6);
+
+                convertView = infalInflater.inflate(R.layout.list_item_inventory, null);
+
+                ImageButton btnListItemInfo = (ImageButton) convertView.findViewById(R.id.btnListItemInfo);
+                btnListItemInfo.setTag(childUID);
             }
 
             else {
-                childText = "Null";
-                childUID = "Item with invalid UID";
+                childText = "Null UID";
             }
         }
 
         else {
-            childText = "Null";
-            childUID = "Item with invalid name";
+            childText = "Null word";
         }
 
-
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this._context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.list_item, null);
-        }
-
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.textListItem);
-
+        TextView txtListChild = (TextView) convertView.findViewById(R.id.textListItem);
         txtListChild.setText(childText);
-
-        /* Image Button code*/
-        ImageButton btnListItemInfo = (ImageButton) convertView.findViewById(R.id.btnListItemInfo);
-
-        btnListItemInfo.setTag(childUID);
 
         return convertView;
     }

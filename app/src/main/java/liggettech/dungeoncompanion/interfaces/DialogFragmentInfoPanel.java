@@ -1,9 +1,14 @@
 package liggettech.dungeoncompanion.interfaces;
 
+import liggettech.dungeoncompanion.adapters.ExpandableListAdapter;
 import liggettech.dungeoncompanion.models.Armor;
 import liggettech.dungeoncompanion.R;
 import liggettech.dungeoncompanion.data.ItemInfoDatabase;
+import liggettech.dungeoncompanion.models.Gear;
 import liggettech.dungeoncompanion.models.Item;
+import liggettech.dungeoncompanion.models.MiscItem;
+import liggettech.dungeoncompanion.models.Tool;
+import liggettech.dungeoncompanion.models.TradeGood;
 import liggettech.dungeoncompanion.models.Weapon;
 
 import android.app.Dialog;
@@ -13,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 public class DialogFragmentInfoPanel extends DialogFragment {
@@ -69,7 +75,7 @@ public class DialogFragmentInfoPanel extends DialogFragment {
     }
 
     private View findAndShowItemInfo(LayoutInflater inflater, ViewGroup container) {
-        View view;
+        View view = null;
         Item baseInfo = new Item("null", 0, 0, "null");
 
         switch (category) {
@@ -106,6 +112,55 @@ public class DialogFragmentInfoPanel extends DialogFragment {
                 }
 
                 break;
+
+            /*case 'E':
+                view = inflater.inflate(R.layout.dialog_info_trade_good,container, false);
+
+                TradeGood foundTradeGood = db.getTradeGoodInfo(uid);
+
+                baseInfo.setName(foundTradeGood.getName());
+                baseInfo.setCost(foundTradeGood.getCost());
+                baseInfo.setWeight(foundTradeGood.getWeight());
+                baseInfo.setDescription(foundTradeGood.getDescription());
+
+                break;
+
+            case 'G':
+                view = inflater.inflate(R.layout.dialog_info_gear,container, false);
+
+                Gear foundGear = db.getGearInfo(uid);
+
+                baseInfo.setName(foundGear.getName());
+                baseInfo.setCost(foundGear.getCost());
+                baseInfo.setWeight(foundGear.getWeight());
+                baseInfo.setDescription(foundGear.getDescription());
+
+                break;
+
+            case 'M':
+                view = inflater.inflate(R.layout.dialog_info_misc_item,container, false);
+
+                MiscItem foundMiscItem = db.getMiscItem(uid);
+
+                baseInfo.setName(foundMiscItem.getName());
+                baseInfo.setCost(foundMiscItem.getCost());
+                baseInfo.setWeight(foundMiscItem.getWeight());
+                baseInfo.setDescription(foundMiscItem.getDescription());
+
+                break;
+
+            case 'T':
+                view = inflater.inflate(R.layout.dialog_info_tool,container, false);
+
+                Tool foundTool = db.getToolInfo(uid);
+
+                baseInfo.setName(foundTool.getName());
+                baseInfo.setCost(foundTool.getCost());
+                baseInfo.setWeight(foundTool.getWeight());
+                baseInfo.setDescription(foundTool.getDescription());
+
+                break;*/
+
             case 'W':
                 view = inflater.inflate(R.layout.dialog_info_weapon,container, false);
 
@@ -127,29 +182,36 @@ public class DialogFragmentInfoPanel extends DialogFragment {
                 View weaponDamageType = view.findViewById(R.id.textInfoWeaponDamageType);
                 ((TextView)weaponDamageType).setText(foundWeapon.getDamageType());
 
-                /** Weapon properties */
+                // Weapon properties
+                ExpandableListView expListView = (ExpandableListView) view.findViewById(R.id.listInfoWeaponProperties);
+                expListView.setAdapter(foundWeapon.preparePropertiesList(getContext()));
 
                 break;
+
             default:
+                //view = null;
                 view = inflater.inflate(R.layout.dialog_info_armor,container, false);
+
                 break;
         }
 
-        View subjectTitle = view.findViewById(R.id.textInfoTitle);
-        View subjectCost = view.findViewById(R.id.textInfoCost);
-        View subjectWeight = view.findViewById(R.id.textInfoWeight);
+        if (view != null) {
+            View subjectTitle = view.findViewById(R.id.textInfoTitle);
+            View subjectCost = view.findViewById(R.id.textInfoCost);
+            View subjectWeight = view.findViewById(R.id.textInfoWeight);
 
-        ((TextView)subjectTitle).setText(baseInfo.getName());
-        ((TextView)subjectCost).setText(baseInfo.getFormatCost());
-        ((TextView)subjectWeight).setText(baseInfo.getFormatWeight());
+            ((TextView) subjectTitle).setText(baseInfo.getName());
+            ((TextView) subjectCost).setText(baseInfo.getFormatCost());
+            ((TextView) subjectWeight).setText(baseInfo.getFormatWeight());
 
-        //Description text view
-        if (category !=  'W') {
-
-            View subjectDescription = view.findViewById(R.id.textInfoDescription);
-            ((TextView) subjectDescription).setText(baseInfo.getDescription());
+            //Description text view
+            if (category != 'W') {
+                View subjectDescription = view.findViewById(R.id.textInfoDescription);
+                ((TextView) subjectDescription).setText(baseInfo.getDescription());
+            }
         }
 
+        //TODO: need to handle null exception
         return view;
     }
 }

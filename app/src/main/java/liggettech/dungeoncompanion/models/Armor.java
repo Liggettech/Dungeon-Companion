@@ -16,10 +16,10 @@ public class Armor extends Item {
 
         super(inName, inCost, inWeight, inDescription);
 
-        this.ac = inAC;
-        this.type = inType;
-        this.strengthRequirement = inStrengthRequirement;
-        this.stealthDisadvantage = inStealthDisadvantage;
+        ac = inAC;
+        type = inType;
+        strengthRequirement = inStrengthRequirement;
+        stealthDisadvantage = inStealthDisadvantage;
     }
 
     public Armor (Item inItem) {
@@ -27,33 +27,33 @@ public class Armor extends Item {
     }
 
     public void setAC (String inAC) {
-        this.ac = inAC;
+        ac = inAC;
     }
 
     public void setType (String inType) {
-        this.type = inType;
+        type = inType;
     }
 
     public void setStrengthRequirement (int inStrengthRequirement) {
-        this.strengthRequirement = inStrengthRequirement;
+        strengthRequirement = inStrengthRequirement;
     }
 
     public void setStrengthRequirement (String inStrengthRequirement) {
-        this.strengthRequirement = Integer.parseInt(inStrengthRequirement);
+        strengthRequirement = Integer.parseInt(inStrengthRequirement);
     }
 
     public void setStealthDisadvantage (boolean inStealthDisadvantage) {
-        this.stealthDisadvantage = inStealthDisadvantage;
+        stealthDisadvantage = inStealthDisadvantage;
     }
 
     public void setStealthDisadvantage (String inStealthDisadvantage) {
         if (inStealthDisadvantage.equalsIgnoreCase("true") ||
                 inStealthDisadvantage.equalsIgnoreCase("t")) {
-            this.stealthDisadvantage = true;
+            stealthDisadvantage = true;
         }
 
         else {
-            this.stealthDisadvantage = false;
+            stealthDisadvantage = false;
         }
     }
 

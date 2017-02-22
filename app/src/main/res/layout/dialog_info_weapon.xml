@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:id="@+id/layInfoWeaponContainer"
-    android:background="@android:color/holo_red_light">
+    android:background="@color/weaponBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         android:padding="2dp">
 
         <TextView
-            android:text="Weapon"
+            android:text="@string/word_null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textInfoTitle"
@@ -32,17 +32,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
         android:id="@+id/layInfoWeaponStats"
         android:background="@android:color/background_light"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:layout_height="150dp">
 
         <RelativeLayout
             android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:id="@+id/layInfoWeaponDamage">
+            android:id="@+id/layInfoWeaponDamage"
+            android:layout_height="75dp">
 
             <TextView
                 android:text="1d6"
@@ -72,11 +72,11 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="220dp"
             app:srcCompat="@drawable/weapon"
             android:id="@+id/imgInfoWeapon"
             android:layout_below="@id/textInfoWeaponProficiency"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_height="150dp" />
 
         <TextView
             android:text="Cost:"
@@ -95,16 +95,18 @@
             android:layout_above="@+id/textInfoWeight"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:textAlignment="textStart" />
 
         <TextView
             android:text="Weight:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lblInfoWeight"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/textInfoWeight" />
+            android:layout_toLeftOf="@+id/textInfoWeight"
+            android:layout_alignBaseline="@+id/textInfoWeight" />
 
         <TextView
             android:text="0"
@@ -113,7 +115,9 @@
             android:id="@+id/textInfoWeight"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
+            android:layout_marginEnd="20dp"
+            android:textAlignment="textStart"
+            android:layout_marginBottom="10dp" />
 
     </RelativeLayout>
 
@@ -134,21 +138,16 @@
             android:background="@android:color/background_light"
             android:padding="5dp" />
 
-        <ScrollView
-            android:id="@+id/scrollInfoWeaponProperties"
+
+        <ExpandableListView
             android:layout_width="match_parent"
+            android:id="@+id/listInfoWeaponProperties"
             android:layout_height="0dp"
 
-            android:layout_weight="0.85"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/layout_rounded_bottom"
-            android:padding="5dp">
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/listInfoWeaponProperties" />
-        </ScrollView>
+            android:layout_weight="0.85"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/btnInfoClose"
